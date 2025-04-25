@@ -7,7 +7,7 @@ import { TypingText } from "./components/LayoutClient";
 
 export default function Home() {
   // Dynamic title logic
-  const [title, setTitle] = useState("[Your Name] | Portfolio");
+  const [title, setTitle] = useState("Alexander Keet | Portfolio");
   const [activeSection, setActiveSection] = useState<string | null>(null);
   useEffect(() => {
     const sections = [
@@ -20,14 +20,14 @@ export default function Home() {
       { id: "timeline", label: "Timeline" },
     ];
     const handleScroll = () => {
-      let current = "[Your Name] | Portfolio";
+      let current = "Alexander Keet | Portfolio";
       let currentSection: string | null = null;
       for (const s of sections) {
         const el = document.getElementById(s.id);
         if (el) {
           const rect = el.getBoundingClientRect();
           if (rect.top < window.innerHeight / 2 && rect.bottom > 80) {
-            current = `[Your Name] | ${s.label}`;
+            current = `Alexander Keet | ${s.label}`;
             currentSection = s.id;
             break;
           }
@@ -74,9 +74,9 @@ export default function Home() {
             {/* Animated typing effect for your name */}
             <TypingText text="[Your Name]" className="text-blue-700 dark:text-blue-300" />
           </h1>
-          <h2 className="text-xl text-gray-600 dark:text-gray-400 text-center animate-fade-in-up delay-200">[Your Professional Title]</h2>
+          <h2 className="text-xl text-gray-600 dark:text-gray-400 text-center animate-fade-in-up delay-200"> CS Developer</h2>
           <LiveStatus statusMessages={["Open to opportunities!","Currently building something cool","Let’s connect!"]} />
-          <p className="text-center text-lg mt-2 animate-fade-in-up delay-300">[Short Bio/About You]</p>
+          <p className="text-center text-lg mt-2 animate-fade-in-up delay-300"> A Talented, and Hardworking Programmer </p>
           <div className="flex gap-4 mt-2 animate-fade-in-up delay-400">
             {/* TODO: Add your social links */}
             <a href="#" className="text-blue-500 hover:underline">[LinkedIn]</a>
@@ -97,9 +97,9 @@ export default function Home() {
           <h3 className="section-heading text-2xl font-semibold mb-4">Skills</h3>
           <ul className="flex flex-wrap gap-3">
             {/* TODO: List your main skills */}
-            <li className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded">[Skill 1]</li>
-            <li className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded">[Skill 2]</li>
-            <li className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded">[Skill 3]</li>
+            <li className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded">Website Creation</li>
+            <li className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded">Backend Development</li>
+            <li className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded">Design</li>
             {/* ...add more skills */}
           </ul>
         </section>
@@ -157,8 +157,8 @@ export default function Home() {
           <ul className="text-lg mt-8">
             {/* TODO: Add your contact details */}
             <li>Email: <a href="mailto:your@email.com" className="text-blue-500 hover:underline">your@email.com</a></li>
-            <li>Phone: [Your Phone Number]</li>
-            <li>Location: [Your Location]</li>
+            <li>Phone: 780 202 7227</li>
+            <li>Location: Edmonton, Alberta</li>
           </ul>
         </section>
         </SectionReveal>
@@ -435,9 +435,9 @@ function FloatingLabelInput({ label, type, name, autoComplete, required, value, 
 function TestimonialsCarousel() {
   const testimonials = [
     {
-      name: "[Person 1]",
-      title: "[Their Title/Company]",
-      quote: "[This is a fantastic place for a glowing testimonial about your work, professionalism, or character.]",
+      name: "My Dad",
+      title: "CEO and Founder of MEF inc.",
+      quote: "Ive never meet a more talented developer",
       avatar: null, // e.g. "/avatar1.jpg"
     },
     {
@@ -515,21 +515,21 @@ function TechIcon({ name, color, icon }: { name: string, color: string, icon: Re
 function Timeline() {
   const events = [
     {
-      year: "2025",
-      title: "[Your Most Recent Role or Project]",
-      description: "[Describe your latest achievement, job, or project milestone here.]",
+      year: "2026",
+      title: "Future Project",
+      description: "latest achievement, job, or project milestone here.",
       icon: <svg width="24" height="24" fill="#60a5fa"><circle cx="12" cy="12" r="10" /></svg>,
     },
     {
-      year: "2023",
-      title: "[Previous Role or Degree]",
-      description: "[Describe a previous job, degree, or major accomplishment.]",
+      year: "2025",
+      title: "Homework Chatbot",
+      description: "created a chatbot designed to ask young students question for their homework",
       icon: <svg width="24" height="24" fill="#a78bfa"><rect x="4" y="4" width="16" height="16" rx="8" /></svg>,
     },
     {
-      year: "2021",
-      title: "[Earlier Milestone]",
-      description: "[Highlight an earlier achievement, internship, or award.]",
+      year: "2024",
+      title: "Text Based Story Game",
+      description: "First real project, created a game...",
       icon: <svg width="24" height="24" fill="#f472b6"><polygon points="12,2 22,22 2,22" /></svg>,
     },
     // ...add more events as needed

@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
 import {
   ThemeSwitcher,
   SectionReveal,
   ResumeCTA,
-  TypingText,
   ScrollProgressBar,
   SpotlightLink,
   GlowOnScroll,
   HelpButton,
   PageLoader,
   BackgroundGrid,
-  ScrollIndicator,
   SectionNavMenu,
   BackToTopProgressCircle
 } from "./components/LayoutClient";
@@ -30,7 +26,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "[Your Name] | Portfolio",
+  title: "Alexander Keet | Portfolio",
   description: "A stunning portfolio to showcase your work.",
 };
 
@@ -99,7 +95,7 @@ export default function RootLayout({
             <a href="#" aria-label="LinkedIn" className="hover:text-blue-700 dark:hover:text-blue-300 transition"><svg width="24" height="24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.29c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.29h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg></a>
             <a href="#" aria-label="Twitter" className="hover:text-blue-400 dark:hover:text-blue-400 transition"><svg width="24" height="24" fill="currentColor"><path d="M24 4.56c-.89.39-1.84.65-2.84.77a4.93 4.93 0 0 0 2.16-2.72c-.95.56-2 .97-3.13 1.19a4.92 4.92 0 0 0-8.39 4.48A13.97 13.97 0 0 1 1.67 3.15a4.93 4.93 0 0 0 1.52 6.57c-.8-.02-1.56-.25-2.22-.62v.06a4.93 4.93 0 0 0 3.95 4.83c-.39.11-.8.17-1.22.17-.3 0-.59-.03-.87-.08a4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 21.54a13.94 13.94 0 0 0 7.56 2.22c9.05 0 14-7.5 14-14v-.64A9.93 9.93 0 0 0 24 4.56z"/></svg></a>
           </div>
-          <span className="text-xs">© {new Date().getFullYear()} [Your Name]. All rights reserved.</span>
+          <span className="text-xs">© {new Date().getFullYear()} Alexander Keet. All rights reserved.</span>
         </footer>
         <PageLoader />
         <SectionNavMenu />
