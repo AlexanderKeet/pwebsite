@@ -322,7 +322,7 @@ function ContactForm() {
     const v = validate();
     setValid(v);
     setSubmitted(true);
-    let allValid = Object.values(v).every(Boolean);
+    const allValid = Object.values(v).every(Boolean);
     if (!allValid) {
       // Animate shake for invalid fields
       Object.entries(v).forEach(([k, ok]) => {
@@ -387,7 +387,7 @@ function ContactForm() {
 // Update FloatingLabelInput to fix onFocus
 function FloatingLabelInput({ label, type, name, autoComplete, required, value, onChange, onBlur, onFocus, valid, shake }: {
   label: string, type: string, name: string, autoComplete?: string, required?: boolean,
-  value?: string, onChange?: any, onBlur?: any, onFocus?: any, valid?: boolean, shake?: boolean
+  value?: string, onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void, onBlur?: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void, onFocus?: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void, valid?: boolean, shake?: boolean
 }) {
   const [focus, setFocus] = useState(false);
   const isActive = focus || (value && value.length > 0);
