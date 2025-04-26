@@ -584,5 +584,3 @@ function WaveDivider() {
     </div>
   );
 }
-
-export { SectionReveal };
