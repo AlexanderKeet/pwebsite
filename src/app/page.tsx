@@ -551,7 +551,7 @@ function Timeline() {
 }
 
 // --- SectionReveal component ---
-export function SectionReveal({ children, delay, effect }: { children: React.ReactNode, delay?: number, effect?: 'fade'|'slide-left'|'slide-right'|'zoom'|'flip' }) {
+function SectionReveal({ children, delay, effect }: { children: React.ReactNode, delay?: number, effect?: 'fade'|'slide-left'|'slide-right'|'zoom'|'flip' }) {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => setShow(true), delay || 0);
@@ -584,3 +584,5 @@ function WaveDivider() {
     </div>
   );
 }
+
+export { SectionReveal };
