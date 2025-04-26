@@ -346,11 +346,8 @@ button:hover, a:hover {
 
 /* --- Overhauled Light Theme Colors --- */
 html.light body {
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  font-size: 1.08rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  line-height: 1.7;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 60%, #c7d2fe 100%);
+  color: #23272f;
 }
 html.light h1, html.light .text-5xl, html.light .text-4xl {
   font-size: 2.6rem;

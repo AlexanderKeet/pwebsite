@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-[#f8fafc] via-[#e0e7ef] to-[#c7d2fe] dark:from-[#0a0a0a] dark:via-[#232946] dark:to-[#1a1a2e] min-h-screen relative transition-colors duration-700`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen relative transition-colors duration-700`}>
         <a href="#main-content" className="skip-link absolute left-4 top-2 z-[10000] bg-blue-600 text-white px-4 py-2 rounded-full font-semibold focus:translate-y-0 -translate-y-16 focus:outline-none focus:ring-4 ring-blue-300 transition-transform duration-300">Skip to main content</a>
         <ScrollProgressBar />
         {/* <AnimatedCursor /> */}
