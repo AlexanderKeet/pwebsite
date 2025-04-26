@@ -344,70 +344,77 @@ button:hover, a:hover {
 }
 .animate-bounce-slow { animation: bounce-slow 2.2s infinite cubic-bezier(.4,0,.2,1); }
 
-/* --- Professional Light Theme Improvements --- */
+/* --- Overhauled Light Theme Colors --- */
 html.light body {
-  background: #f7f9fb;
-  color: #1a1a1a;
+  background: #f4f7fa;
+  color: #232946;
 }
 html.light .glass,
 html.light .glass-navbar,
 html.light .glass-content {
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 8px 32px 0 rgba(60,60,180,0.08);
+  background: #fff;
+  box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.07);
   border-radius: 24px;
-  border: 1.5px solid #e0e7ef;
+  border: 1.5px solid #e3e8ee;
 }
 html.light .glass-navbar {
-  border-top: 2.5px solid #a5b4fc;
-  border-bottom: 2.5px solid #f472b6;
+  border-top: 2.5px solid #a0c4ff;
+  border-bottom: 2.5px solid #bdb2ff;
 }
 html.light .glass-content {
-  border: 1.5px solid #e0e7ef;
+  border: 1.5px solid #e3e8ee;
 }
 html.light .section-heading {
   color: #3b3b6d;
+  letter-spacing: 0.01em;
 }
 html.light .active-section {
-  background: linear-gradient(90deg, #f7f9fb 80%, #a5b4fc11 100%);
-  box-shadow: 0 0 0 4px #60a5fa22, 0 0 32px 0 #a78bfa11;
+  background: linear-gradient(90deg, #f4f7fa 80%, #a0c4ff22 100%);
+  box-shadow: 0 0 0 4px #a0c4ff33, 0 0 32px 0 #bdb2ff22;
 }
 html.light .project-card {
-  background: #fff;
-  border: 1px solid #e0e7ef;
-  box-shadow: 0 4px 24px 0 rgba(60,60,180,0.06);
+  background: #fafdff;
+  border: 1px solid #e3e8ee;
+  box-shadow: 0 4px 24px 0 rgba(44, 62, 80, 0.06);
 }
 html.light .rounded-full {
-  background: #f3f6fa;
+  background: #e3e8ee;
 }
 html.light .text-blue-700 {
-  color: #2a3a8c !important;
+  color: #3a5ca8 !important;
+}
+html.light .text-blue-500 {
+  color: #4361ee !important;
+}
+html.light .text-blue-400 {
+  color: #4895ef !important;
 }
 html.light .text-gray-600 {
-  color: #4b5563 !important;
+  color: #5c677d !important;
 }
 html.light .text-gray-400 {
-  color: #9ca3af !important;
+  color: #b0b7c3 !important;
 }
 html.light .bg-gray-100 {
-  background: #f3f4f6 !important;
+  background: #e3e8ee !important;
 }
 html.light .bg-gray-200 {
-  background: #e5e7eb !important;
+  background: #cdd6e6 !important;
 }
 html.light .bg-gray-50 {
-  background: #f9fafb !important;
+  background: #fafdff !important;
 }
 html.light .border-gray-300 {
-  border-color: #e5e7eb !important;
+  border-color: #cdd6e6 !important;
 }
 html.light .border-gray-700 {
-  border-color: #d1d5db !important;
+  border-color: #b0b7c3 !important;
 }
 html.light .shadow-lg {
-  box-shadow: 0 8px 32px 0 rgba(60,60,180,0.10) !important;
+  box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.10) !important;
 }
 html.light .shadow-2xl {
-  box-shadow: 0 16px 48px 0 rgba(60,60,180,0.12) !important;
+  box-shadow: 0 16px 48px 0 rgba(44, 62, 80, 0.13) !important;
 }
 html.light .backdrop-blur-xl {
   backdrop-filter: blur(24px) saturate(180%);
@@ -415,4 +422,49 @@ html.light .backdrop-blur-xl {
 html.light .animate-fade-in-up, html.light .animate-fade-in {
   background: none !important;
 }
-/* --- End Professional Light Theme Improvements --- */
+html.light .bg-blue-600 {
+  background: #4361ee !important;
+}
+html.light .bg-blue-500 {
+  background: #4895ef !important;
+}
+html.light .bg-pink-500 {
+  background: #f72585 !important;
+}
+html.light .bg-purple-500 {
+  background: #b5179e !important;
+}
+html.light .bg-blue-400 {
+  background: #4cc9f0 !important;
+}
+html.light .bg-blue-300 {
+  background: #a0c4ff !important;
+}
+html.light .bg-blue-200 {
+  background: #bdb2ff !important;
+}
+html.light .bg-blue-100 {
+  background: #e0e7ff !important;
+}
+html.light .ring-blue-300 {
+  --tw-ring-color: #a0c4ff !important;
+}
+html.light .ring-blue-400 {
+  --tw-ring-color: #4895ef !important;
+}
+html.light .ring-pink-500 {
+  --tw-ring-color: #f72585 !important;
+}
+html.light .ring-purple-500 {
+  --tw-ring-color: #b5179e !important;
+}
+html.light .ring-blue-500 {
+  --tw-ring-color: #4361ee !important;
+}
+html.light .ring-blue-700 {
+  --tw-ring-color: #3a5ca8 !important;
+}
+html.light .ring-blue-900 {
+  --tw-ring-color: #232946 !important;
+}
+/* --- End Overhauled Light Theme Colors --- */

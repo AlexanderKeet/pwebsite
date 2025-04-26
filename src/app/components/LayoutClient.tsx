@@ -4,22 +4,17 @@ import React, { useEffect, useState, useRef } from "react";
 function ThemeSwitcher() {
   // Use system preference only on first load, then use localStorage or default to light
   const getInitialTheme = () => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("theme");
-      if (stored === "dark" || stored === "light") return stored;
-    }
-    return "light";
+    if (typeof window === 'undefined') return 'light';
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') return stored;
+    return 'light';
   };
   const [theme, setTheme] = useState(getInitialTheme);
-
   useEffect(() => {
-    if (typeof document !== "undefined") {
-      document.documentElement.classList.remove("dark", "light");
-      document.documentElement.classList.add(theme);
-      localStorage.setItem("theme", theme);
-    }
+    document.documentElement.classList.remove('light', 'dark');
+    document.documentElement.classList.add(theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
-
   return (
     <button
       aria-label="Toggle theme"
