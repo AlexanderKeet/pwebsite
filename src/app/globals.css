@@ -346,36 +346,69 @@ button:hover, a:hover {
 
 /* --- Overhauled Light Theme Colors --- */
 html.light body {
-  background: #f4f7fa;
-  color: #232946;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+}
+html.light h1, html.light .text-5xl, html.light .text-4xl {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1e293b;
+}
+html.light h2, html.light .text-3xl {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #23272f;
+}
+html.light h3, html.light .text-2xl {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #3a5ca8;
+}
+html.light h4, html.light .text-xl {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #5c677d;
+}
+html.light p, html.light .text-base {
+  color: #23272f;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+html.light small, html.light .text-sm {
+  color: #b0b7c3;
+  font-size: 0.96rem;
 }
 html.light .glass,
 html.light .glass-navbar,
 html.light .glass-content {
   background: #fff;
-  box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.07);
-  border-radius: 24px;
-  border: 1.5px solid #e3e8ee;
+  box-shadow: 0 2px 8px 0 rgba(44, 62, 80, 0.04);
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
 }
 html.light .glass-navbar {
-  border-top: 2.5px solid #a0c4ff;
-  border-bottom: 2.5px solid #bdb2ff;
+  border-top: none;
+  border-bottom: 1px solid #e5e7eb;
 }
 html.light .glass-content {
-  border: 1.5px solid #e3e8ee;
+  border: 1px solid #e5e7eb;
 }
 html.light .section-heading {
-  color: #3b3b6d;
+  color: #23272f;
   letter-spacing: 0.01em;
 }
 html.light .active-section {
-  background: linear-gradient(90deg, #f4f7fa 80%, #a0c4ff22 100%);
-  box-shadow: 0 0 0 4px #a0c4ff33, 0 0 32px 0 #bdb2ff22;
+  background: #f1f5f9;
+  box-shadow: 0 0 0 2px #cbd5e1, 0 0 8px 0 #e5e7eb;
 }
 html.light .project-card {
-  background: #fafdff;
-  border: 1px solid #e3e8ee;
-  box-shadow: 0 4px 24px 0 rgba(44, 62, 80, 0.06);
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px 0 rgba(44, 62, 80, 0.04);
 }
 html.light .rounded-full {
   background: #e3e8ee;
