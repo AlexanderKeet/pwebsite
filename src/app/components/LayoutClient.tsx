@@ -2,7 +2,24 @@
 import React, { useEffect, useState, useRef } from "react";
 // --- Theme Switcher ---
 function ThemeSwitcher() {
-  const [theme, setTheme] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  // Use system preference only on first load, then use localStorage or default to light
+  const getInitialTheme = () => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("theme");
+      if (stored === "dark" || stored === "light") return stored;
+    }
+    return "light";
+  };
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.classList.remove("dark", "light");
+      document.documentElement.classList.add(theme);
+      localStorage.setItem("theme", theme);
+    }
+  }, [theme]);
+
   return (
     <button
       aria-label="Toggle theme"
@@ -12,7 +29,7 @@ function ThemeSwitcher() {
       {theme === "dark" ? (
         <svg width="24" height="24" fill="currentColor"><path d="M12 3a9 9 0 0 0 0 18c4.97 0 9-4.03 9-9 0-4.97-4.03-9-9-9zm0 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>
       ) : (
-        <svg width="24" height="24" fill="currentColor"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zm10.45 10.45l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zm1.79-10.45l-1.8 1.79 1.42 1.42 1.79-1.8-1.41-1.41zm-10.45 10.45l-1.79 1.8 1.41 1.41 1.8-1.79-1.42-1.42zM12 5a7 7 0 0 1 0 14 7 7 0 0 1 0-14zm0-2C6.48 3 2 7.48 2 13s4.48 10 10 10 10-4.48 10-10S17.52 3 12 3z"/></svg>
+        <svg width="24" height="24" fill="currentColor"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zm10.45 10.45l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zm1.79-10.45l-1.8 1.79 1.42 1.42 1.79-1.8-1.41-1.41zm-10.45 10.45l-1.79 1.8 1.41 1.41 1.8-1.79-1.42-1.42zM12 5a7 7 0 0 1 0 14 7 7 0 0 1 0-14z"/></svg>
       )}
     </button>
   );
