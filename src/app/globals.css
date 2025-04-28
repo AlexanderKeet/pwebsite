@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Default to light theme variables */
-  --background-start-rgb: 248, 250, 252; /* slate-50 */
-  --background-end-rgb: 224, 231, 239; /* slate-200 */
-  --foreground-rgb: 30, 41, 59; /* slate-800 */
-  --muted-foreground-rgb: 71, 85, 105; /* slate-600 */
+  /* Default to light theme variables - Revised */
+  --background-start-rgb: 255, 255, 255; /* white */
+  --background-end-rgb: 241, 245, 249; /* slate-100 */
+  --foreground-rgb: 15, 23, 42; /* slate-900 */
+  --muted-foreground-rgb: 51, 65, 85; /* slate-700 */
   --card-rgb: 255, 255, 255; /* white */
-  --card-border-rgb: 226, 232, 240; /* slate-200 */
+  --card-border-rgb: 203, 213, 225; /* slate-300 */
   --primary-rgb: 79, 70, 229; /* indigo-600 */
   --primary-foreground-rgb: 255, 255, 255; /* white */
-  --secondary-rgb: 241, 245, 249; /* slate-100 */
-  --secondary-foreground-rgb: 30, 41, 59; /* slate-800 */
-  --accent-rgb: 96, 165, 250; /* blue-400 */
-  --accent-foreground-rgb: 15, 23, 42; /* slate-900 */
-  --glass-bg-rgb: 255, 255, 255;
-  --glass-bg-alpha: 0.7;
-  --glass-border-rgb: 255, 255, 255;
-  --glass-border-alpha: 0.2;
-  --shadow-color-rgb: 60, 60, 180;
-  --shadow-opacity: 0.1;
+  --secondary-rgb: 248, 250, 252; /* slate-50 */
+  --secondary-foreground-rgb: 15, 23, 42; /* slate-900 */
+  --accent-rgb: 59, 130, 246; /* blue-500 */
+  --accent-foreground-rgb: 255, 255, 255; /* white */
+  --glass-bg-rgb: 248, 250, 252; /* slate-50 */
+  --glass-bg-alpha: 0.8;
+  --glass-border-rgb: 255, 255, 255; /* white */
+  --glass-border-alpha: 0.3;
+  --shadow-color-rgb: 100, 116, 139; /* slate-500 */
+  --shadow-opacity: 0.08;
 }
 
 html.dark {
