@@ -605,21 +605,10 @@ function Timeline() {
 }
 
 // --- SectionReveal component ---
-function SectionReveal({ children, delay, effect }: { children: React.ReactNode, delay?: number, effect?: 'fade'|'slide-left'|'slide-right'|'zoom'|'flip' }) {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setShow(true), delay || 0);
-    return () => clearTimeout(t);
-  }, [delay]);
-  let anim = 'animate-fade-in-up';
-  if (effect === 'slide-left') anim = 'animate-slide-in-left';
-  if (effect === 'slide-right') anim = 'animate-slide-in-right';
-  if (effect === 'zoom') anim = 'animate-zoom-in';
-  if (effect === 'flip') anim = 'animate-flip-in';
-  // Apply animation only when show is true
-  return (
-    <div className={show ? anim : 'opacity-0'} style={show && delay ? { animationDelay: `${delay}ms` } : {}}>{children}</div>
-  );
+// Modified to always render children without scroll-triggered animation
+function SectionReveal({ children }: { children: React.ReactNode, delay?: number, effect?: 'fade'|'slide-left'|'slide-right'|'zoom'|'flip' }) {
+  // Simply return the children without applying animation based on scroll
+  return <>{children}</>;
 }
 
 // --- WaveDivider component ---
