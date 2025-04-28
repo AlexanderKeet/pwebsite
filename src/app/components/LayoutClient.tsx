@@ -33,17 +33,6 @@ function ThemeSwitcher() {
   );
 }
 
-// --- Section Reveal ---
-function SectionReveal({ children }: { children: React.ReactNode }) {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    setTimeout(() => setShow(true), 300);
-  }, []);
-  return (
-    <div className={show ? "animate-fade-in-up" : "opacity-0"}>{children}</div>
-  );
-}
-
 // --- Resume CTA ---
 function ResumeCTA() {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -453,7 +442,7 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
           <div className="relative w-full max-w-3xl rounded-3xl p-[2px] glass-content animate-fade-in-up">
             {/* Use CSS variables for background, border */}
             <div className="rounded-[22px] bg-[rgba(var(--card-rgb),0.8)] shadow-2xl p-8 sm:p-12 backdrop-blur-xl border border-[rgba(var(--card-border-rgb),0.3)]">
-              <SectionReveal>{children}</SectionReveal>
+              {children}
             </div>
           </div>
         </GlowOnScroll>
@@ -482,7 +471,6 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
 
 export {
   ThemeSwitcher,
-  SectionReveal,
   ResumeCTA,
   ScrollProgressBar,
   SpotlightLink,

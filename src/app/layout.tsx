@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {
   ThemeSwitcher,
-  SectionReveal,
   ResumeCTA,
   ScrollProgressBar,
   SpotlightLink,
@@ -75,7 +74,7 @@ export default function RootLayout({
           <GlowOnScroll>
             <div className="relative w-full max-w-3xl rounded-3xl p-[2px] glass-content animate-fade-in-up">
               <div className="rounded-[22px] bg-white/80 dark:bg-black/60 shadow-2xl p-8 sm:p-12 backdrop-blur-xl border border-white/30 dark:border-white/10">
-                <SectionReveal>{children}</SectionReveal>
+                {children}
               </div>
             </div>
           </GlowOnScroll>
