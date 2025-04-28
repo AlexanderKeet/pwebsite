@@ -345,9 +345,9 @@ button:hover, a:hover {
 .animate-bounce-slow { animation: bounce-slow 2.2s infinite cubic-bezier(.4,0,.2,1); }
 
 /* --- Overhauled Light Theme Colors --- */
-html.light, html.light body, body {
-  background: #fff !important;
-  color: #23272f !important;
+html.light body {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 60%, #c7d2fe 100%);
+  color: #23272f;
 }
 html.light h1, html.light .text-5xl, html.light .text-4xl {
   font-size: 2.6rem;
