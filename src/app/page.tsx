@@ -26,7 +26,8 @@ export default function Home() {
         const el = document.getElementById(s.id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight / 2 && rect.bottom > 80) {
+          // Adjust threshold for better active section detection
+          if (rect.top < window.innerHeight * 0.6 && rect.bottom > 120) {
             current = `Alexander Keet | ${s.label}`;
             currentSection = s.id;
             break;
@@ -57,49 +58,54 @@ export default function Home() {
         <meta name="twitter:image" content="/your-og-image.png" />
         <meta name="author" content="[Your Name]" />
         <meta name="robots" content="index, follow" />
-        <meta name="theme-color" content="#6366f1" />
+        {/* Use primary color variable for theme-color */}
+        <meta name="theme-color" content="rgb(var(--primary-rgb))" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="[YOUR_PORTFOLIO_URL]" />
-        <meta property="og:updated_time" content="2025-04-24T00:00:00.000Z" />
+        <meta property="og:updated_time" content="2025-04-28T00:00:00.000Z" />
       </Head>
-      <div className="min-h-screen p-8 sm:p-20 flex flex-col items-center font-sans bg-white dark:bg-black text-black dark:text-white">
+      {/* Remove redundant background/text colors, rely on body styles */}
+      <div className="min-h-screen p-8 sm:p-12 flex flex-col items-center font-sans">
         {/* Profile Section */}
-        <section className={`w-full max-w-2xl flex flex-col items-center gap-4 mt-8${activeSection==="about"?" active-section":""}`} id="about">
-          {/* TODO: Replace with your profile photo */}
-          <div className="w-32 h-32 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center overflow-hidden shadow-lg ring-4 ring-blue-400/30 dark:ring-blue-700/30 animate-fade-in-up animated-gradient-border">
+        <section className={`w-full max-w-2xl flex flex-col items-center gap-4 mt-8 mb-8 p-4 rounded-lg transition-all duration-300 ${activeSection==="about"?" active-section":""}`} id="about">
+          {/* Use profile-photo-bg class */}
+          <div className="w-32 h-32 rounded-full profile-photo-bg flex items-center justify-center overflow-hidden shadow-lg ring-4 ring-blue-400/30 dark:ring-blue-700/30 animate-fade-in-up animated-gradient-border">
             {/* <Image src="/your-photo.jpg" alt="Your Name" width={128} height={128} /> */}
             <span className="text-gray-400">[Profile Photo]</span>
           </div>
-          <h1 className="text-3xl font-bold text-center">
-            {/* Animated typing effect for your name */}
-            <TypingText text="[Your Name]" className="text-blue-700 dark:text-blue-300" />
+          <h1 className="text-4xl font-bold text-center">
+            {/* Use primary color for name */}
+            <TypingText text="[Your Name]" className="text-primary" />
           </h1>
-          <h2 className="text-xl text-gray-600 dark:text-gray-400 text-center animate-fade-in-up delay-200"> CS Developer</h2>
+          {/* Use muted foreground color */}
+          <h2 className="text-xl text-muted-foreground text-center animate-fade-in-up delay-200"> CS Developer</h2>
           <LiveStatus statusMessages={["Open to opportunities!","Currently building something cool","Let’s connect!"]} />
-          <p className="text-center text-lg mt-2 animate-fade-in-up delay-300"> A Talented, and Hardworking Programmer </p>
+          {/* Use foreground color */}
+          <p className="text-center text-lg mt-2 animate-fade-in-up delay-300 text-foreground"> A Talented, and Hardworking Programmer </p>
           <div className="flex gap-4 mt-2 animate-fade-in-up delay-400">
-            {/* TODO: Add your social links */}
-            <a href="#" className="text-blue-500 hover:underline">[LinkedIn]</a>
-            <a href="#" className="text-blue-400 hover:underline">[GitHub]</a>
-            <a href="#" className="text-pink-500 hover:underline">[Twitter/X]</a>
+            {/* Links will inherit color from body/variable */}
+            <a href="#" className="hover:underline">[LinkedIn]</a>
+            <a href="#" className="hover:underline">[GitHub]</a>
+            <a href="#" className="hover:underline">[Twitter/X]</a>
           </div>
         </section>
 
         {/* Scroll to Next Section Button */}
-        <ScrollToNextSection />
+        {/* Use primary color */}
+        <ScrollToNextSection targetId="skills" colorClass="text-primary" />
 
         {/* Animated Wave Divider */}
         <WaveDivider />
 
         {/* Skills Section */}
         <SectionReveal delay={200} effect="slide-left">
-        <section className={`w-full max-w-2xl mt-12${activeSection==="skills"?" active-section":""}`} id="skills">
-          <h3 className="section-heading text-2xl font-semibold mb-4">Skills</h3>
+        <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="skills"?" active-section":""}`} id="skills">
+          <h3 className="section-heading text-2xl font-semibold mb-6">Skills</h3>
+          {/* Use secondary background/foreground for skill tags */}
           <ul className="flex flex-wrap gap-3">
-            {/* TODO: List your main skills */}
-            <li className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded">Website Creation</li>
-            <li className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded">Backend Development</li>
-            <li className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded">Design</li>
+            <li className="bg-secondary text-secondary-foreground px-3 py-1 rounded-md shadow-sm">Website Creation</li>
+            <li className="bg-secondary text-secondary-foreground px-3 py-1 rounded-md shadow-sm">Backend Development</li>
+            <li className="bg-secondary text-secondary-foreground px-3 py-1 rounded-md shadow-sm">Design</li>
             {/* ...add more skills */}
           </ul>
         </section>
@@ -110,24 +116,45 @@ export default function Home() {
 
         {/* Projects Section */}
         <SectionReveal delay={400} effect="slide-right">
-        <section className={`w-full max-w-2xl mt-12${activeSection==="projects"?" active-section":""}`} id="projects">
-          <h3 className="section-heading text-2xl font-semibold mb-4">Projects</h3>
+        <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="projects"?" active-section":""}`} id="projects">
+          <h3 className="section-heading text-2xl font-semibold mb-6">Projects</h3>
           <div className="flex flex-col gap-8">
-            {/* TODO: Duplicate this block for each project */}
-            <div className="project-card border rounded-lg p-4 flex flex-col sm:flex-row gap-4 bg-gray-50 dark:bg-gray-900 transition-transform duration-300">
-              {/* <Image src="/project-image.jpg" alt="Project Title" width={96} height={96} className="rounded" /> */}
+            {/* Project card uses CSS variables now, remove explicit bg/dark:bg */}
+            <div className="project-card p-6 flex flex-col sm:flex-row gap-6">
+              {/* Placeholder for image */}
+              <div className="w-24 h-24 bg-secondary rounded-lg flex-shrink-0 flex items-center justify-center">
+                 <span className="text-muted-foreground text-sm">[Img]</span>
+              </div>
               <div>
-                <h4 className="text-xl font-bold">[Project Title]</h4>
-                <p className="text-gray-600 dark:text-gray-400">[Short project description]</p>
-                <div className="flex gap-2 mt-2 flex-wrap">
-                  {/* TODO: List tech stack */}
-                  <span className="bg-gray-200 dark:bg-gray-700 px-2 py-0.5 rounded text-xs">[Tech 1]</span>
-                  <span className="bg-gray-200 dark:bg-gray-700 px-2 py-0.5 rounded text-xs">[Tech 2]</span>
+                <h4 className="text-xl font-bold text-primary">[Project Title]</h4>
+                {/* Use muted foreground */}
+                <p className="text-muted-foreground mt-1">[Short project description]</p>
+                <div className="flex gap-2 mt-3 flex-wrap">
+                  {/* Use secondary bg/fg for tech tags */}
+                  <span className="bg-secondary text-secondary-foreground px-2 py-0.5 rounded text-xs">[Tech 1]</span>
+                  <span className="bg-secondary text-secondary-foreground px-2 py-0.5 rounded text-xs">[Tech 2]</span>
                 </div>
-                <div className="flex gap-3 mt-2">
-                  {/* TODO: Add project links */}
-                  <a href="#" className="text-blue-500 hover:underline">[Live Demo]</a>
-                  <a href="#" className="text-blue-400 hover:underline">[Source Code]</a>
+                <div className="flex gap-4 mt-3">
+                  <a href="#" className="text-primary hover:underline font-medium">[Live Demo]</a>
+                  <a href="#" className="text-accent hover:underline font-medium">[Source Code]</a>
+                </div>
+              </div>
+            </div>
+            {/* Add another project card example */}
+            <div className="project-card p-6 flex flex-col sm:flex-row gap-6">
+              <div className="w-24 h-24 bg-secondary rounded-lg flex-shrink-0 flex items-center justify-center">
+                 <span className="text-muted-foreground text-sm">[Img]</span>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-primary">[Another Project]</h4>
+                <p className="text-muted-foreground mt-1">[Description of the second project...]</p>
+                <div className="flex gap-2 mt-3 flex-wrap">
+                  <span className="bg-secondary text-secondary-foreground px-2 py-0.5 rounded text-xs">[Tech 3]</span>
+                  <span className="bg-secondary text-secondary-foreground px-2 py-0.5 rounded text-xs">[Tech 4]</span>
+                </div>
+                <div className="flex gap-4 mt-3">
+                  <a href="#" className="text-primary hover:underline font-medium">[Live Demo]</a>
+                  <a href="#" className="text-accent hover:underline font-medium">[Source Code]</a>
                 </div>
               </div>
             </div>
@@ -140,9 +167,9 @@ export default function Home() {
 
         {/* Resume Section */}
         <SectionReveal delay={600} effect="zoom">
-        <section className={`w-full max-w-2xl mt-12 flex flex-col items-center${activeSection==="resume"?" active-section":""}`} id="resume">
-          {/* TODO: Add your resume link */}
-          <SpotlightButton href="#" className="shimmer-btn">Download Resume (PDF)</SpotlightButton>
+        <section className={`w-full max-w-2xl mt-12 flex flex-col items-center p-4 rounded-lg transition-all duration-300 ${activeSection==="resume"?" active-section":""}`} id="resume">
+          {/* Use primary-button class */}
+          <SpotlightButton href="#" className="primary-button shimmer-btn">Download Resume (PDF)</SpotlightButton>
         </section>
         </SectionReveal>
 
@@ -151,12 +178,12 @@ export default function Home() {
 
         {/* Contact Section */}
         <SectionReveal delay={800} effect="slide-left">
-        <section className={`w-full max-w-2xl mt-12 mb-8${activeSection==="contact"?" active-section":""}`} id="contact">
-          <h3 className="section-heading text-2xl font-semibold mb-4">Contact</h3>
+        <section className={`w-full max-w-2xl mt-12 mb-8 p-4 rounded-lg transition-all duration-300 ${activeSection==="contact"?" active-section":""}`} id="contact">
+          <h3 className="section-heading text-2xl font-semibold mb-6">Contact</h3>
           <ContactForm />
-          <ul className="text-lg mt-8">
-            {/* TODO: Add your contact details */}
-            <li>Email: <a href="mailto:your@email.com" className="text-blue-500 hover:underline">your@email.com</a></li>
+          {/* Use muted foreground for list items */}
+          <ul className="text-base mt-8 space-y-2 text-muted-foreground">
+            <li>Email: <a href="mailto:your@email.com" className="text-primary hover:underline">your@email.com</a></li>
             <li>Phone: 780 202 7227</li>
             <li>Location: Edmonton, Alberta</li>
           </ul>
@@ -168,8 +195,8 @@ export default function Home() {
 
         {/* Testimonials Section */}
         <SectionReveal delay={1000} effect="slide-right">
-        <section className={`w-full max-w-2xl mt-12${activeSection==="testimonials"?" active-section":""}`} id="testimonials">
-          <h3 className="section-heading text-2xl font-semibold mb-4 text-center">Testimonials</h3>
+        <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="testimonials"?" active-section":""}`} id="testimonials">
+          <h3 className="section-heading text-2xl font-semibold mb-6 text-center">Testimonials</h3>
           <TestimonialsCarousel />
         </section>
         </SectionReveal>
@@ -179,13 +206,13 @@ export default function Home() {
 
         {/* Dynamic Tech Stack Section */}
         <SectionReveal delay={1200} effect="zoom">
-        <section className={`w-full max-w-2xl mt-12${activeSection==="tech-stack"?" active-section":""}`} id="tech-stack">
-          <h3 className="section-heading text-2xl font-semibold mb-4 text-center">Tech Stack</h3>
-          <div className="flex flex-wrap justify-center gap-6">
-            {/* TODO: Replace with your favorite tech icons */}
+        <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="tech-stack"?" active-section":""}`} id="tech-stack">
+          <h3 className="section-heading text-2xl font-semibold mb-8 text-center">Tech Stack</h3>
+          <div className="flex flex-wrap justify-center gap-8">
+            {/* Pass colors directly, TechIcon handles hover effect */} 
             <TechIcon name="React" color="#61dafb" icon={<svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#222" /><g><ellipse rx="10" ry="4" cx="20" cy="20" fill="none" stroke="#61dafb" strokeWidth="2" /><ellipse rx="10" ry="4" cx="20" cy="20" fill="none" stroke="#61dafb" strokeWidth="2" transform="rotate(60 20 20)" /><ellipse rx="10" ry="4" cx="20" cy="20" fill="none" stroke="#61dafb" strokeWidth="2" transform="rotate(120 20 20)" /><circle cx="20" cy="20" r="2.5" fill="#61dafb" /></g></svg>} />
             <TechIcon name="TypeScript" color="#3178c6" icon={<svg width="40" height="40" viewBox="0 0 40 40"><rect width="36" height="36" x="2" y="2" rx="8" fill="#222" /><text x="20" y="28" textAnchor="middle" fontSize="18" fill="#3178c6" fontWeight="bold">TS</text></svg>} />
-            <TechIcon name="Next.js" color="#fff" icon={<svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#222" /><text x="20" y="28" textAnchor="middle" fontSize="16" fill="#fff" fontWeight="bold">Next</text></svg>} />
+            <TechIcon name="Next.js" color="#ffffff" icon={<svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#222" /><text x="20" y="28" textAnchor="middle" fontSize="16" fill="#fff" fontWeight="bold">Next</text></svg>} />
             <TechIcon name="Tailwind" color="#38bdf8" icon={<svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#222" /><path d="M13 23c1.5-3 3.5-4.5 6-4.5s4.5 1.5 6 4.5c-1.5 3-3.5 4.5-6 4.5s-4.5-1.5-6-4.5z" fill="#38bdf8" /></svg>} />
             {/* ...add more TechIcon components for your stack */}
           </div>
@@ -197,8 +224,8 @@ export default function Home() {
 
         {/* Timeline Section */}
         <SectionReveal delay={1400} effect="flip">
-        <section className={`w-full max-w-2xl mt-12${activeSection==="timeline"?" active-section":""}`} id="timeline">
-          <h3 className="section-heading text-2xl font-semibold mb-4 text-center">Timeline</h3>
+        <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="timeline"?" active-section":""}`} id="timeline">
+          <h3 className="section-heading text-2xl font-semibold mb-8 text-center">Timeline</h3>
           <Timeline />
         </section>
         </SectionReveal>
@@ -207,6 +234,7 @@ export default function Home() {
   );
 }
 
+// SpotlightButton: Use primary-button styles, remove explicit bg/text colors
 function SpotlightButton({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const [pos, setPos] = useState({ x: 50, y: 50 });
@@ -218,7 +246,8 @@ function SpotlightButton({ href, children, className }: { href: string; children
   return (
     <a
       href={href}
-      className={`spotlight-hover bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition relative inline-block overflow-visible ${className || ""}`}
+      // Apply btn-like for hover effects, remove explicit colors
+      className={`spotlight-hover btn-like transition relative inline-block overflow-visible ${className || ""}`}
       ref={ref}
       onMouseMove={e => {
         const rect = ref.current?.getBoundingClientRect();
@@ -244,14 +273,15 @@ function SpotlightButton({ href, children, className }: { href: string; children
   );
 }
 
-// --- ConfettiBurst animation ---
+// ... existing ConfettiBurst ...
 function ConfettiBurst() {
   // 12 confetti pieces, random color/angle
   const confetti = Array.from({ length: 12 }).map((_, i) => {
     const angle = (i / 12) * 2 * Math.PI;
     const x = Math.cos(angle) * 60;
     const y = Math.sin(angle) * 60;
-    const colors = ["#60a5fa", "#a78bfa", "#f472b6", "#facc15", "#34d399", "#f87171"];
+    // Use theme colors for confetti
+    const colors = ["rgb(var(--primary-rgb))", "rgb(var(--accent-rgb))", "#f472b6", "#facc15", "#34d399", "#f87171"];
     const color = colors[i % colors.length];
     const delay = Math.random() * 0.2;
     return (
@@ -275,16 +305,17 @@ function ConfettiBurst() {
   return <>{confetti}</>;
 }
 
-// --- ScrollToNextSection component ---
-function ScrollToNextSection() {
+
+// ScrollToNextSection: Accept color class
+function ScrollToNextSection({ targetId, colorClass }: { targetId: string; colorClass: string }) {
   return (
     <button
-      aria-label="Scroll to skills"
-      className="mx-auto block mt-4 animate-bounce-slow text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-400 transition"
+      aria-label={`Scroll to ${targetId}`}
+      className={`mx-auto block mt-4 animate-bounce-slow ${colorClass} hover:opacity-80 transition`}
       style={{ fontSize: 36 }}
       onClick={() => {
-        const el = document.getElementById("skills");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
+        const el = document.getElementById(targetId);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
       }}
     >
       <svg width="36" height="36" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
@@ -292,7 +323,7 @@ function ScrollToNextSection() {
   );
 }
 
-// --- ContactForm with animated validation ---
+// ContactForm: Use CSS variables via Tailwind classes
 function ContactForm() {
   const [fields, setFields] = useState({ name: "", email: "", message: "" });
   const [touched, setTouched] = useState<{[k:string]:boolean}>({});
@@ -324,7 +355,6 @@ function ContactForm() {
     setSubmitted(true);
     const allValid = Object.values(v).every(Boolean);
     if (!allValid) {
-      // Animate shake for invalid fields
       Object.entries(v).forEach(([k, ok]) => {
         if (!ok) {
           setShake(s => ({ ...s, [k]: true }));
@@ -333,7 +363,6 @@ function ContactForm() {
       });
       return;
     }
-    // TODO: Handle actual form submission (e.g., email or API)
     alert("Message sent! (This is a placeholder)");
     setFields({ name: "", email: "", message: "" });
     setTouched({});
@@ -342,6 +371,7 @@ function ContactForm() {
   }
 
   const v = validate();
+
   return (
     <form className="flex flex-col gap-6 mt-4" onSubmit={handleSubmit} noValidate>
       <FloatingLabelInput
@@ -379,21 +409,27 @@ function ContactForm() {
         valid={submitted ? v.message : undefined}
         shake={!!shake.message}
       />
-      <button type="submit" className="spotlight-hover shimmer-btn bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition relative inline-block">Send Message</button>
+      {/* Use primary-button class */}
+      <button type="submit" className="spotlight-hover shimmer-btn primary-button self-start">Send Message</button>
     </form>
   );
 }
 
-// Update FloatingLabelInput to fix onFocus
+// FloatingLabelInput: Use CSS variables, manage active state for label
 function FloatingLabelInput({ label, type, name, autoComplete, required, value, onChange, onBlur, onFocus, valid, shake }: {
   label: string, type: string, name: string, autoComplete?: string, required?: boolean,
   value?: string, onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void, onBlur?: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void, onFocus?: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void, valid?: boolean, shake?: boolean
 }) {
   const [focus, setFocus] = useState(false);
-  const isActive = focus || (value && value.length > 0);
-  let border = "border-gray-300 dark:border-gray-700";
-  if (valid === true) border = "border-green-400";
-  if (valid === false) border = "border-red-400";
+  const isActive = focus || (value != null && value.length > 0);
+
+  let borderClass = "border-card-border focus:border-primary focus:ring-primary/20"; // Use CSS vars via Tailwind config (requires setup) or direct rgb()
+  if (valid === true) borderClass = "border-green-500 focus:border-green-500 focus:ring-green-500/20";
+  if (valid === false) borderClass = "border-red-500 focus:border-red-500 focus:ring-red-500/20";
+
+  // Define base input/textarea classes using theme variables
+  const inputBaseClasses = `w-full bg-secondary/50 border rounded-lg px-4 pt-6 pb-2 text-base text-foreground outline-none focus:ring-2 transition duration-200 ${borderClass}`;
+
   return (
     <div className={`relative ${shake ? "animate-shake" : ""}`}>
       {type === "textarea" ? (
@@ -401,7 +437,7 @@ function FloatingLabelInput({ label, type, name, autoComplete, required, value, 
           name={name}
           autoComplete={autoComplete}
           required={required}
-          className={`w-full bg-white/70 dark:bg-black/40 border ${border} rounded-lg px-4 pt-6 pb-2 text-base outline-none focus:ring-2 focus:ring-blue-400 transition`}
+          className={`${inputBaseClasses}`}
           value={value}
           onFocus={e => { setFocus(true); if (typeof onFocus === 'function') onFocus(e); }}
           onBlur={e => { setFocus(false); if (typeof onBlur === 'function') onBlur(e); }}
@@ -414,7 +450,7 @@ function FloatingLabelInput({ label, type, name, autoComplete, required, value, 
           name={name}
           autoComplete={autoComplete}
           required={required}
-          className={`w-full bg-white/70 dark:bg-black/40 border ${border} rounded-lg px-4 pt-6 pb-2 text-base outline-none focus:ring-2 focus:ring-blue-400 transition`}
+          className={`${inputBaseClasses}`}
           value={value}
           onFocus={e => { setFocus(true); if (typeof onFocus === 'function') onFocus(e); }}
           onBlur={e => { setFocus(false); if (typeof onBlur === 'function') onBlur(e); }}
@@ -422,8 +458,9 @@ function FloatingLabelInput({ label, type, name, autoComplete, required, value, 
         />
       )}
       <label
-        className={`absolute left-4 top-4 text-gray-500 dark:text-gray-400 pointer-events-none transition-all duration-200 ${isActive ? "-translate-y-3 scale-90 bg-white/80 dark:bg-black/60 px-1" : ""}`}
-        style={{ zIndex: 2 }}
+        // Use CSS variables for label color and background
+        className={`absolute left-4 top-4 text-muted-foreground pointer-events-none transition-all duration-200 ${isActive ? "-translate-y-3 scale-90 bg-background-start px-1 text-primary" : ""}`}
+        style={{ zIndex: 2, backgroundColor: 'rgb(var(--background-start-rgb))' }} // Explicit background needed for overlap
       >
         {label}
       </label>
@@ -431,7 +468,7 @@ function FloatingLabelInput({ label, type, name, autoComplete, required, value, 
   );
 }
 
-// --- TestimonialsCarousel component ---
+// TestimonialsCarousel: Use theme variables
 function TestimonialsCarousel() {
   const testimonials = [
     {
@@ -456,18 +493,23 @@ function TestimonialsCarousel() {
   }, [idx, testimonials.length]);
   const t = testimonials[idx];
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-[180px]">
-      <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-blue-400 via-purple-300 to-pink-400 dark:from-blue-900 dark:via-purple-800 dark:to-pink-700 flex items-center justify-center mb-4 overflow-hidden shadow-lg">
-        {t.avatar ? <Image src={t.avatar} alt={t.name} width={80} height={80} /> : <span className="text-3xl text-white/60">👤</span>}
+    <div className="relative flex flex-col items-center justify-center min-h-[200px]">
+      {/* Use gradient with theme variables */}
+      <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-accent via-primary to-pink-400 flex items-center justify-center mb-4 overflow-hidden shadow-lg">
+        {t.avatar ? <Image src={t.avatar} alt={t.name} width={80} height={80} /> : <span className="text-3xl text-primary-foreground/60">👤</span>}
       </div>
-      <blockquote className="text-lg italic text-center animate-fade-in-up min-h-[60px]">“{t.quote}”</blockquote>
-      <div className="mt-3 text-base font-semibold text-blue-700 dark:text-blue-300">{t.name}</div>
-      <div className="text-sm text-gray-500 dark:text-gray-400">{t.title}</div>
+      {/* Use foreground color */}
+      <blockquote className="text-lg italic text-center text-foreground animate-fade-in-up min-h-[60px]">“{t.quote}”</blockquote>
+      {/* Use primary color */}
+      <div className="mt-3 text-base font-semibold text-primary">{t.name}</div>
+      {/* Use muted foreground */}
+      <div className="text-sm text-muted-foreground">{t.title}</div>
       <div className="flex gap-2 mt-4">
         {testimonials.map((_, i) => (
           <button
             key={i}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${i === idx ? "bg-blue-500 scale-125" : "bg-gray-300 dark:bg-gray-700"}`}
+            // Use primary and secondary colors for dots
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${i === idx ? "bg-primary scale-125" : "bg-secondary"}`}
             onClick={() => setIdx(i)}
             aria-label={`Show testimonial ${i + 1}`}
           />
@@ -477,7 +519,7 @@ function TestimonialsCarousel() {
   );
 }
 
-// --- LiveStatus component ---
+// LiveStatus: Use theme variables for colors
 function LiveStatus({ statusMessages }: { statusMessages: string[] }) {
   const [idx, setIdx] = useState(0);
   useEffect(() => {
@@ -490,12 +532,13 @@ function LiveStatus({ statusMessages }: { statusMessages: string[] }) {
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
         <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
       </span>
+      {/* Use green text colors directly as they indicate status, not theme */} 
       <span className="text-sm font-medium text-green-700 dark:text-green-300 transition-all duration-500">{statusMessages[idx]}</span>
     </div>
   );
 }
 
-// --- TechIcon component ---
+// TechIcon: Use tech-icon-bg class, adjust hover effect
 function TechIcon({ name, color, icon }: { name: string, color: string, icon: React.ReactNode }) {
   const [hover, setHover] = useState(false);
   return (
@@ -503,28 +546,35 @@ function TechIcon({ name, color, icon }: { name: string, color: string, icon: Re
       className={`flex flex-col items-center group transition-transform duration-300 ${hover ? "scale-110" : ""}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      style={{ filter: hover ? `drop-shadow(0 0 16px ${color}99)` : undefined }}
+      style={{ filter: hover ? `drop-shadow(0 0 12px ${color}aa)` : undefined }}
     >
-      <div className={`rounded-full bg-white/80 dark:bg-black/60 shadow-lg p-2 transition-all duration-300 ${hover ? "ring-4 ring-["+color+"]" : ""}`}>{icon}</div>
-      <span className="mt-2 text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-[${color}] transition-colors duration-300">{name}</span>
+      {/* Use tech-icon-bg class and CSS custom property for ring color */}
+      <div
+        className={`rounded-full tech-icon-bg shadow-lg p-3 transition-all duration-300 ${hover ? "ring-2 ring-offset-2 ring-offset-background-start ring-[--ring-color]" : ""}`}
+        style={{ '--ring-color': color } as React.CSSProperties} // Set custom property
+      >
+        {icon}
+      </div>
+      {/* Use muted foreground, hover uses direct color */}
+      <span className={`mt-2 text-sm font-medium text-muted-foreground group-hover:text-[${color}] transition-colors duration-300`} style={hover ? { color: color } : {}}>{name}</span>
     </div>
   );
 }
 
-// --- Timeline component ---
+// Timeline: Use timeline-border and timeline-icon-bg classes
 function Timeline() {
   const events = [
     {
       year: "2026",
       title: "Future Project",
       description: "latest achievement, job, or project milestone here.",
-      icon: <svg width="24" height="24" fill="#60a5fa"><circle cx="12" cy="12" r="10" /></svg>,
+      icon: <svg width="24" height="24" fill="rgb(var(--primary-rgb))"><circle cx="12" cy="12" r="10" /></svg>,
     },
     {
       year: "2025",
       title: "Homework Chatbot",
       description: "created a chatbot designed to ask young students question for their homework",
-      icon: <svg width="24" height="24" fill="#a78bfa"><rect x="4" y="4" width="16" height="16" rx="8" /></svg>,
+      icon: <svg width="24" height="24" fill="rgb(var(--accent-rgb))"><rect x="4" y="4" width="16" height="16" rx="8" /></svg>,
     },
     {
       year: "2024",
@@ -532,18 +582,22 @@ function Timeline() {
       description: "First real project, created a game...",
       icon: <svg width="24" height="24" fill="#f472b6"><polygon points="12,2 22,22 2,22" /></svg>,
     },
-    // ...add more events as needed
   ];
   return (
-    <ol className="relative border-l-4 border-blue-200 dark:border-blue-900 ml-6">
+    // Use timeline-border class
+    <ol className="relative border-l-4 timeline-border ml-6">
       {events.map((e, i) => (
-        <li key={i} className="mb-12 ml-6 animate-fade-in-up" style={{ animationDelay: `${i * 0.2 + 0.2}s` }}>
-          <span className="absolute -left-8 flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-black shadow-lg ring-4 ring-blue-200 dark:ring-blue-900">
+        <li key={i} className="mb-12 ml-8 animate-fade-in-up" style={{ animationDelay: `${i * 0.2 + 0.2}s` }}>
+          {/* Use timeline-icon-bg class */}
+          <span className="absolute -left-10 flex items-center justify-center w-12 h-12 rounded-full timeline-icon-bg shadow-lg">
             {e.icon}
           </span>
-          <div className="mb-1 text-lg font-bold text-blue-700 dark:text-blue-300">{e.year}</div>
-          <div className="text-base font-semibold">{e.title}</div>
-          <div className="text-gray-600 dark:text-gray-400">{e.description}</div>
+          {/* Use primary color for year */}
+          <div className="mb-1 text-lg font-bold text-primary">{e.year}</div>
+          {/* Use foreground color for title */}
+          <div className="text-base font-semibold text-foreground">{e.title}</div>
+          {/* Use muted foreground for description */}
+          <div className="text-muted-foreground">{e.description}</div>
         </li>
       ))}
     </ol>
@@ -562,24 +616,26 @@ function SectionReveal({ children, delay, effect }: { children: React.ReactNode,
   if (effect === 'slide-right') anim = 'animate-slide-in-right';
   if (effect === 'zoom') anim = 'animate-zoom-in';
   if (effect === 'flip') anim = 'animate-flip-in';
+  // Apply animation only when show is true
   return (
-    <div className={show ? anim : 'opacity-0'} style={delay ? { animationDelay: `${delay}ms` } : {}}>{children}</div>
+    <div className={show ? anim : 'opacity-0'} style={show && delay ? { animationDelay: `${delay}ms` } : {}}>{children}</div>
   );
 }
 
 // --- WaveDivider component ---
 function WaveDivider() {
   return (
-    <div className="w-full max-w-3xl mx-auto -mb-8 -mt-4">
+    <div className="w-full max-w-4xl mx-auto -mb-8 -mt-4 opacity-80">
       <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16">
-        <path fill="url(#wave-gradient)" fillOpacity="0.7" d="M0,80 C360,160 1080,0 1440,80 L1440,120 L0,120 Z"/>
+        {/* Define gradient using CSS variables */} 
         <defs>
-          <linearGradient id="wave-gradient" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#60a5fa" />
-            <stop offset="0.5" stopColor="#a78bfa" />
-            <stop offset="1" stopColor="#f472b6" />
+          <linearGradient id="wave-gradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="rgb(var(--accent-rgb))" />
+            <stop offset="50%" stopColor="rgb(var(--primary-rgb))" />
+            <stop offset="100%" stopColor="#f472b6" />
           </linearGradient>
         </defs>
+        <path fill="url(#wave-gradient)" fillOpacity="0.6" d="M0,80 C360,160 1080,0 1440,80 L1440,120 L0,120 Z"/>
       </svg>
     </div>
   );
