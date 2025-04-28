@@ -98,10 +98,8 @@ export default function Home() {
         <WaveDivider />
 
         {/* Skills Section */}
-        <SectionReveal delay={200} effect="slide-left">
         <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="skills"?" active-section":""}`} id="skills">
           <h3 className="section-heading text-2xl font-semibold mb-6">Skills</h3>
-          {/* Use secondary background/foreground for skill tags */}
           <ul className="flex flex-wrap gap-3">
             <li className="bg-secondary text-secondary-foreground px-3 py-1 rounded-md shadow-sm">Website Creation</li>
             <li className="bg-secondary text-secondary-foreground px-3 py-1 rounded-md shadow-sm">Backend Development</li>
@@ -109,17 +107,14 @@ export default function Home() {
             {/* ...add more skills */}
           </ul>
         </section>
-        </SectionReveal>
 
         {/* Animated Wave Divider */}
         <WaveDivider />
 
         {/* Projects Section */}
-        <SectionReveal delay={400} effect="slide-right">
         <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="projects"?" active-section":""}`} id="projects">
           <h3 className="section-heading text-2xl font-semibold mb-6">Projects</h3>
           <div className="flex flex-col gap-8">
-            {/* Project card uses CSS variables now, remove explicit bg/dark:bg */}
             <div className="project-card p-6 flex flex-col sm:flex-row gap-6">
               {/* Placeholder for image */}
               <div className="w-24 h-24 bg-secondary rounded-lg flex-shrink-0 flex items-center justify-center">
@@ -160,52 +155,43 @@ export default function Home() {
             </div>
           </div>
         </section>
-        </SectionReveal>
 
         {/* Animated Wave Divider */}
         <WaveDivider />
 
         {/* Resume Section */}
-        <SectionReveal delay={600} effect="zoom">
         <section className={`w-full max-w-2xl mt-12 flex flex-col items-center p-4 rounded-lg transition-all duration-300 ${activeSection==="resume"?" active-section":""}`} id="resume">
           {/* Use primary-button class */}
           <SpotlightButton href="#" className="primary-button shimmer-btn">Download Resume (PDF)</SpotlightButton>
         </section>
-        </SectionReveal>
 
         {/* Animated Wave Divider */}
         <WaveDivider />
 
         {/* Contact Section */}
-        <SectionReveal delay={800} effect="slide-left">
         <section className={`w-full max-w-2xl mt-12 mb-8 p-4 rounded-lg transition-all duration-300 ${activeSection==="contact"?" active-section":""}`} id="contact">
           <h3 className="section-heading text-2xl font-semibold mb-6">Contact</h3>
           <ContactForm />
-          {/* Use muted foreground for list items */}
           <ul className="text-base mt-8 space-y-2 text-muted-foreground">
             <li>Email: <a href="mailto:your@email.com" className="text-primary hover:underline">your@email.com</a></li>
             <li>Phone: 780 202 7227</li>
             <li>Location: Edmonton, Alberta</li>
           </ul>
         </section>
-        </SectionReveal>
 
         {/* Animated Wave Divider */}
         <WaveDivider />
 
         {/* Testimonials Section */}
-        <SectionReveal delay={1000} effect="slide-right">
         <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="testimonials"?" active-section":""}`} id="testimonials">
           <h3 className="section-heading text-2xl font-semibold mb-6 text-center">Testimonials</h3>
           <TestimonialsCarousel />
         </section>
-        </SectionReveal>
 
         {/* Animated Wave Divider */}
         <WaveDivider />
 
         {/* Dynamic Tech Stack Section */}
-        <SectionReveal delay={1200} effect="zoom">
         <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="tech-stack"?" active-section":""}`} id="tech-stack">
           <h3 className="section-heading text-2xl font-semibold mb-8 text-center">Tech Stack</h3>
           <div className="flex flex-wrap justify-center gap-8">
@@ -217,18 +203,15 @@ export default function Home() {
             {/* ...add more TechIcon components for your stack */}
           </div>
         </section>
-        </SectionReveal>
 
         {/* Animated Wave Divider */}
         <WaveDivider />
 
         {/* Timeline Section */}
-        <SectionReveal delay={1400} effect="flip">
         <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="timeline"?" active-section":""}`} id="timeline">
           <h3 className="section-heading text-2xl font-semibold mb-8 text-center">Timeline</h3>
           <Timeline />
         </section>
-        </SectionReveal>
       </div>
     </>
   );
