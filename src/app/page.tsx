@@ -62,19 +62,19 @@ export default function Home() {
         <link rel="canonical" href="[YOUR_PORTFOLIO_URL]" />
         <meta property="og:updated_time" content="2025-04-24T00:00:00.000Z" />
       </Head>
-      <div className="min-h-screen p-8 sm:p-20 flex flex-col items-center font-sans bg-white dark:bg-black text-black dark:text-white transition-colors duration-700">
+      <div className="min-h-screen p-8 sm:p-20 flex flex-col items-center font-sans bg-white dark:bg-black text-black dark:text-white">
         {/* Profile Section */}
-        <section className={`w-full max-w-2xl flex flex-col items-center gap-4 mt-8${activeSection==="about"?" active-section":""}`} id="about" style={{background: '#fff', color: '#23272f'}}>
+        <section className={`w-full max-w-2xl flex flex-col items-center gap-4 mt-8${activeSection==="about"?" active-section":""}`} id="about">
           {/* TODO: Replace with your profile photo */}
-          <div className="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden shadow-lg ring-4 ring-blue-400/30 animate-fade-in-up animated-gradient-border">
+          <div className="w-32 h-32 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center overflow-hidden shadow-lg ring-4 ring-blue-400/30 dark:ring-blue-700/30 animate-fade-in-up animated-gradient-border">
             {/* <Image src="/your-photo.jpg" alt="Your Name" width={128} height={128} /> */}
             <span className="text-gray-400">[Profile Photo]</span>
           </div>
           <h1 className="text-3xl font-bold text-center">
             {/* Animated typing effect for your name */}
-            <TypingText text="[Your Name]" className="text-blue-700" />
+            <TypingText text="[Your Name]" className="text-blue-700 dark:text-blue-300" />
           </h1>
-          <h2 className="text-xl text-gray-600 text-center animate-fade-in-up delay-200"> CS Developer</h2>
+          <h2 className="text-xl text-gray-600 dark:text-gray-400 text-center animate-fade-in-up delay-200"> CS Developer</h2>
           <LiveStatus statusMessages={["Open to opportunities!","Currently building something cool","Let’s connect!"]} />
           <p className="text-center text-lg mt-2 animate-fade-in-up delay-300"> A Talented, and Hardworking Programmer </p>
           <div className="flex gap-4 mt-2 animate-fade-in-up delay-400">
@@ -93,7 +93,7 @@ export default function Home() {
 
         {/* Skills Section */}
         <SectionReveal delay={200} effect="slide-left">
-        <section className={`w-full max-w-2xl mt-12${activeSection==="skills"?" active-section":""}`} id="skills" style={{background: '#fff', color: '#23272f'}}>
+        <section className={`w-full max-w-2xl mt-12${activeSection==="skills"?" active-section":""}`} id="skills">
           <h3 className="section-heading text-2xl font-semibold mb-4">Skills</h3>
           <ul className="flex flex-wrap gap-3">
             {/* TODO: List your main skills */}
@@ -110,11 +110,11 @@ export default function Home() {
 
         {/* Projects Section */}
         <SectionReveal delay={400} effect="slide-right">
-        <section className={`w-full max-w-2xl mt-12${activeSection==="projects"?" active-section":""}`} id="projects" style={{background: '#fff', color: '#23272f'}}>
+        <section className={`w-full max-w-2xl mt-12${activeSection==="projects"?" active-section":""}`} id="projects">
           <h3 className="section-heading text-2xl font-semibold mb-4">Projects</h3>
           <div className="flex flex-col gap-8">
             {/* TODO: Duplicate this block for each project */}
-            <div className="project-card border rounded-lg p-4 flex flex-col sm:flex-row gap-4 bg-white transition-transform duration-300">
+            <div className="project-card border rounded-lg p-4 flex flex-col sm:flex-row gap-4 bg-gray-50 dark:bg-gray-900 transition-transform duration-300">
               {/* <Image src="/project-image.jpg" alt="Project Title" width={96} height={96} className="rounded" /> */}
               <div>
                 <h4 className="text-xl font-bold">[Project Title]</h4>
@@ -140,7 +140,7 @@ export default function Home() {
 
         {/* Resume Section */}
         <SectionReveal delay={600} effect="zoom">
-        <section className={`w-full max-w-2xl mt-12 flex flex-col items-center${activeSection==="resume"?" active-section":""}`} id="resume" style={{background: '#fff', color: '#23272f'}}>
+        <section className={`w-full max-w-2xl mt-12 flex flex-col items-center${activeSection==="resume"?" active-section":""}`} id="resume">
           {/* TODO: Add your resume link */}
           <SpotlightButton href="#" className="shimmer-btn">Download Resume (PDF)</SpotlightButton>
         </section>
@@ -151,7 +151,7 @@ export default function Home() {
 
         {/* Contact Section */}
         <SectionReveal delay={800} effect="slide-left">
-        <section className={`w-full max-w-2xl mt-12 mb-8${activeSection==="contact"?" active-section":""}`} id="contact" style={{background: '#fff', color: '#23272f'}}>
+        <section className={`w-full max-w-2xl mt-12 mb-8${activeSection==="contact"?" active-section":""}`} id="contact">
           <h3 className="section-heading text-2xl font-semibold mb-4">Contact</h3>
           <ContactForm />
           <ul className="text-lg mt-8">
@@ -168,7 +168,7 @@ export default function Home() {
 
         {/* Testimonials Section */}
         <SectionReveal delay={1000} effect="slide-right">
-        <section className={`w-full max-w-2xl mt-12${activeSection==="testimonials"?" active-section":""}`} id="testimonials" style={{background: '#fff', color: '#23272f'}}>
+        <section className={`w-full max-w-2xl mt-12${activeSection==="testimonials"?" active-section":""}`} id="testimonials">
           <h3 className="section-heading text-2xl font-semibold mb-4 text-center">Testimonials</h3>
           <TestimonialsCarousel />
         </section>
@@ -179,7 +179,7 @@ export default function Home() {
 
         {/* Dynamic Tech Stack Section */}
         <SectionReveal delay={1200} effect="zoom">
-        <section className={`w-full max-w-2xl mt-12${activeSection==="tech-stack"?" active-section":""}`} id="tech-stack" style={{background: '#fff', color: '#23272f'}}>
+        <section className={`w-full max-w-2xl mt-12${activeSection==="tech-stack"?" active-section":""}`} id="tech-stack">
           <h3 className="section-heading text-2xl font-semibold mb-4 text-center">Tech Stack</h3>
           <div className="flex flex-wrap justify-center gap-6">
             {/* TODO: Replace with your favorite tech icons */}
@@ -197,7 +197,7 @@ export default function Home() {
 
         {/* Timeline Section */}
         <SectionReveal delay={1400} effect="flip">
-        <section className={`w-full max-w-2xl mt-12${activeSection==="timeline"?" active-section":""}`} id="timeline" style={{background: '#fff', color: '#23272f'}}>
+        <section className={`w-full max-w-2xl mt-12${activeSection==="timeline"?" active-section":""}`} id="timeline">
           <h3 className="section-heading text-2xl font-semibold mb-4 text-center">Timeline</h3>
           <Timeline />
         </section>
@@ -280,7 +280,7 @@ function ScrollToNextSection() {
   return (
     <button
       aria-label="Scroll to skills"
-      className="mx-auto block mt-4 animate-bounce-slow text-blue-500 hover:text-blue-700 transition"
+      className="mx-auto block mt-4 animate-bounce-slow text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-400 transition"
       style={{ fontSize: 36 }}
       onClick={() => {
         const el = document.getElementById("skills");
@@ -457,17 +457,17 @@ function TestimonialsCarousel() {
   const t = testimonials[idx];
   return (
     <div className="relative flex flex-col items-center justify-center min-h-[180px]">
-      <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-blue-400 via-purple-300 to-pink-400 flex items-center justify-center mb-4 overflow-hidden shadow-lg">
+      <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-blue-400 via-purple-300 to-pink-400 dark:from-blue-900 dark:via-purple-800 dark:to-pink-700 flex items-center justify-center mb-4 overflow-hidden shadow-lg">
         {t.avatar ? <Image src={t.avatar} alt={t.name} width={80} height={80} /> : <span className="text-3xl text-white/60">👤</span>}
       </div>
       <blockquote className="text-lg italic text-center animate-fade-in-up min-h-[60px]">“{t.quote}”</blockquote>
-      <div className="mt-3 text-base font-semibold text-blue-700">{t.name}</div>
-      <div className="text-sm text-gray-500">{t.title}</div>
+      <div className="mt-3 text-base font-semibold text-blue-700 dark:text-blue-300">{t.name}</div>
+      <div className="text-sm text-gray-500 dark:text-gray-400">{t.title}</div>
       <div className="flex gap-2 mt-4">
         {testimonials.map((_, i) => (
           <button
             key={i}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${i === idx ? "bg-blue-500 scale-125" : "bg-gray-300"}`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${i === idx ? "bg-blue-500 scale-125" : "bg-gray-300 dark:bg-gray-700"}`}
             onClick={() => setIdx(i)}
             aria-label={`Show testimonial ${i + 1}`}
           />
@@ -506,7 +506,7 @@ function TechIcon({ name, color, icon }: { name: string, color: string, icon: Re
       style={{ filter: hover ? `drop-shadow(0 0 16px ${color}99)` : undefined }}
     >
       <div className={`rounded-full bg-white/80 dark:bg-black/60 shadow-lg p-2 transition-all duration-300 ${hover ? "ring-4 ring-["+color+"]" : ""}`}>{icon}</div>
-      <span className="mt-2 text-sm font-medium text-gray-700 group-hover:text-[${color}] transition-colors duration-300">{name}</span>
+      <span className="mt-2 text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-[${color}] transition-colors duration-300">{name}</span>
     </div>
   );
 }
@@ -538,12 +538,12 @@ function Timeline() {
     <ol className="relative border-l-4 border-blue-200 dark:border-blue-900 ml-6">
       {events.map((e, i) => (
         <li key={i} className="mb-12 ml-6 animate-fade-in-up" style={{ animationDelay: `${i * 0.2 + 0.2}s` }}>
-          <span className="absolute -left-8 flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg ring-4 ring-blue-200">
+          <span className="absolute -left-8 flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-black shadow-lg ring-4 ring-blue-200 dark:ring-blue-900">
             {e.icon}
           </span>
-          <div className="mb-1 text-lg font-bold text-blue-700">{e.year}</div>
+          <div className="mb-1 text-lg font-bold text-blue-700 dark:text-blue-300">{e.year}</div>
           <div className="text-base font-semibold">{e.title}</div>
-          <div className="text-gray-600">{e.description}</div>
+          <div className="text-gray-600 dark:text-gray-400">{e.description}</div>
         </li>
       ))}
     </ol>
