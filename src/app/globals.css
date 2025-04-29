@@ -265,18 +265,6 @@ button:hover, a.btn-like:hover {
   50% { box-shadow: 0 12px 40px 0 rgba(var(--shadow-color-rgb), calc(var(--shadow-opacity) * 1.3)), 0 4px 12px 0 rgba(0,0,0,0.08); }
 }
 
-/* Active Section using CSS variables */
-.active-section {
-  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.3), 0 0 24px 0 rgba(var(--accent-rgb), 0.2);
-  background: rgba(var(--card-rgb), 0.5); /* Use card color with alpha */
-  transition: box-shadow 0.4s, background 0.4s;
-  z-index: 2;
-  position: relative;
-  border-radius: 16px; /* Add radius */
-  padding: 1rem; /* Add padding */
-  margin: -1rem; /* Offset padding */
-}
-
 /* Section Heading using CSS variables */
 .section-heading {
   position: relative;
