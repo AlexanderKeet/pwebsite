@@ -67,7 +67,7 @@ export default function Home() {
       {/* Remove redundant background/text colors, rely on body styles */}
       <div className="min-h-screen p-8 sm:p-12 flex flex-col items-center font-sans">
         {/* Profile Section */}
-        <section className={`w-full max-w-2xl flex flex-col items-center gap-4 mt-8 mb-8 p-4 rounded-lg transition-all duration-300 ${activeSection==="about"?" active-section":""}`} id="about">
+        <section className="w-full max-w-2xl flex flex-col items-center gap-4 mt-8 mb-8 p-4 rounded-lg glass-content" id="about">
           <div className="w-32 h-32 rounded-full profile-photo-bg flex items-center justify-center overflow-hidden shadow-lg ring-4 ring-blue-400/30 dark:ring-blue-700/30 animated-gradient-border">
             {/* <Image src="/your-photo.jpg" alt="Your Name" width={128} height={128} /> */}
             <span className="text-gray-400">[Profile Photo]</span>
@@ -93,7 +93,7 @@ export default function Home() {
         <WaveDivider />
 
         {/* Skills Section */}
-        <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="skills"?" active-section":""}`} id="skills">
+        <section className="w-full max-w-2xl mt-12 p-4 rounded-lg glass-content" id="skills">
           <h3 className="section-heading text-2xl font-semibold mb-6">Skills</h3>
           <ul className="flex flex-wrap gap-3">
             <li className="bg-secondary text-secondary-foreground px-3 py-1 rounded-md shadow-sm">Website Creation</li>
@@ -107,7 +107,7 @@ export default function Home() {
         <WaveDivider />
 
         {/* Projects Section */}
-        <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="projects"?" active-section":""}`} id="projects">
+        <section className="w-full max-w-2xl mt-12 p-4 rounded-lg glass-content" id="projects">
           <h3 className="section-heading text-2xl font-semibold mb-6">Projects</h3>
           <div className="flex flex-col gap-8">
             <div className="project-card p-6 flex flex-col sm:flex-row gap-6">
@@ -151,7 +151,7 @@ export default function Home() {
         <WaveDivider />
 
         {/* Resume Section */}
-        <section className={`w-full max-w-2xl mt-12 flex flex-col items-center p-4 rounded-lg transition-all duration-300 ${activeSection==="resume"?" active-section":""}`} id="resume">
+        <section className="w-full max-w-2xl mt-12 flex flex-col items-center p-4 rounded-lg glass-content" id="resume">
           <SpotlightButton href="#" className="primary-button shimmer-btn">Download Resume (PDF)</SpotlightButton>
         </section>
 
@@ -159,7 +159,7 @@ export default function Home() {
         <WaveDivider />
 
         {/* Contact Section */}
-        <section className={`w-full max-w-2xl mt-12 mb-8 p-4 rounded-lg transition-all duration-300 ${activeSection==="contact"?" active-section":""}`} id="contact">
+        <section className="w-full max-w-2xl mt-12 mb-8 p-4 rounded-lg glass-content" id="contact">
           <h3 className="section-heading text-2xl font-semibold mb-6">Contact</h3>
           <ContactForm />
           <ul className="text-base mt-8 space-y-2 text-muted-foreground">
@@ -173,7 +173,7 @@ export default function Home() {
         <WaveDivider />
 
         {/* Testimonials Section */}
-        <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="testimonials"?" active-section":""}`} id="testimonials">
+        <section className="w-full max-w-2xl mt-12 p-4 rounded-lg glass-content" id="testimonials">
           <h3 className="section-heading text-2xl font-semibold mb-6 text-center">Testimonials</h3>
           <TestimonialsCarousel />
         </section>
@@ -182,7 +182,7 @@ export default function Home() {
         <WaveDivider />
 
         {/* Dynamic Tech Stack Section */}
-        <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="tech-stack"?" active-section":""}`} id="tech-stack">
+        <section className="w-full max-w-2xl mt-12 p-4 rounded-lg glass-content" id="tech-stack">
           <h3 className="section-heading text-2xl font-semibold mb-8 text-center">Tech Stack</h3>
           <div className="flex flex-wrap justify-center gap-8">
             {/* Pass colors directly, TechIcon handles hover effect */} 
@@ -198,7 +198,7 @@ export default function Home() {
         <WaveDivider />
 
         {/* Timeline Section */}
-        <section className={`w-full max-w-2xl mt-12 p-4 rounded-lg transition-all duration-300 ${activeSection==="timeline"?" active-section":""}`} id="timeline">
+        <section className="w-full max-w-2xl mt-12 p-4 rounded-lg glass-content" id="timeline">
           <h3 className="section-heading text-2xl font-semibold mb-8 text-center">Timeline</h3>
           <Timeline />
         </section>
