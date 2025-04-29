@@ -8,7 +8,6 @@ import { TypingText } from "./components/LayoutClient";
 export default function Home() {
   // Dynamic title logic
   const [title, setTitle] = useState("Alexander Keet | Portfolio");
-  const [activeSection, setActiveSection] = useState<string | null>(null);
   useEffect(() => {
     const sections = [
       { id: "about", label: "About" },
@@ -21,21 +20,17 @@ export default function Home() {
     ];
     const handleScroll = () => {
       let current = "Alexander Keet | Portfolio";
-      let currentSection: string | null = null;
       for (const s of sections) {
         const el = document.getElementById(s.id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // Adjust threshold for better active section detection
           if (rect.top < window.innerHeight * 0.6 && rect.bottom > 120) {
             current = `Alexander Keet | ${s.label}`;
-            currentSection = s.id;
             break;
           }
         }
       }
       setTitle(current);
-      setActiveSection(currentSection);
     };
     window.addEventListener("scroll", handleScroll);
     handleScroll();
