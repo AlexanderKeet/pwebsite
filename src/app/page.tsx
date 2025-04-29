@@ -68,22 +68,17 @@ export default function Home() {
       <div className="min-h-screen p-8 sm:p-12 flex flex-col items-center font-sans">
         {/* Profile Section */}
         <section className={`w-full max-w-2xl flex flex-col items-center gap-4 mt-8 mb-8 p-4 rounded-lg transition-all duration-300 ${activeSection==="about"?" active-section":""}`} id="about">
-          {/* Use profile-photo-bg class */}
-          <div className="w-32 h-32 rounded-full profile-photo-bg flex items-center justify-center overflow-hidden shadow-lg ring-4 ring-blue-400/30 dark:ring-blue-700/30 animate-fade-in-up animated-gradient-border">
+          <div className="w-32 h-32 rounded-full profile-photo-bg flex items-center justify-center overflow-hidden shadow-lg ring-4 ring-blue-400/30 dark:ring-blue-700/30 animated-gradient-border">
             {/* <Image src="/your-photo.jpg" alt="Your Name" width={128} height={128} /> */}
             <span className="text-gray-400">[Profile Photo]</span>
           </div>
           <h1 className="text-4xl font-bold text-center">
-            {/* Use primary color for name */}
             <TypingText text="[Your Name]" className="text-primary" />
           </h1>
-          {/* Use muted foreground color */}
-          <h2 className="text-xl text-muted-foreground text-center animate-fade-in-up delay-200"> CS Developer</h2>
+          <h2 className="text-xl text-muted-foreground text-center"> CS Developer</h2>
           <LiveStatus statusMessages={["Open to opportunities!","Currently building something cool","Let’s connect!"]} />
-          {/* Use foreground color */}
-          <p className="text-center text-lg mt-2 animate-fade-in-up delay-300 text-foreground"> A Talented, and Hardworking Programmer </p>
-          <div className="flex gap-4 mt-2 animate-fade-in-up delay-400">
-            {/* Links will inherit color from body/variable */}
+          <p className="text-center text-lg mt-2 text-foreground"> A Talented, and Hardworking Programmer </p>
+          <div className="flex gap-4 mt-2">
             <a href="#" className="hover:underline">[LinkedIn]</a>
             <a href="#" className="hover:underline">[GitHub]</a>
             <a href="#" className="hover:underline">[Twitter/X]</a>
@@ -116,16 +111,13 @@ export default function Home() {
           <h3 className="section-heading text-2xl font-semibold mb-6">Projects</h3>
           <div className="flex flex-col gap-8">
             <div className="project-card p-6 flex flex-col sm:flex-row gap-6">
-              {/* Placeholder for image */}
               <div className="w-24 h-24 bg-secondary rounded-lg flex-shrink-0 flex items-center justify-center">
                  <span className="text-muted-foreground text-sm">[Img]</span>
               </div>
               <div>
                 <h4 className="text-xl font-bold text-primary">[Project Title]</h4>
-                {/* Use muted foreground */}
                 <p className="text-muted-foreground mt-1">[Short project description]</p>
                 <div className="flex gap-2 mt-3 flex-wrap">
-                  {/* Use secondary bg/fg for tech tags */}
                   <span className="bg-secondary text-secondary-foreground px-2 py-0.5 rounded text-xs">[Tech 1]</span>
                   <span className="bg-secondary text-secondary-foreground px-2 py-0.5 rounded text-xs">[Tech 2]</span>
                 </div>
@@ -135,7 +127,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* Add another project card example */}
             <div className="project-card p-6 flex flex-col sm:flex-row gap-6">
               <div className="w-24 h-24 bg-secondary rounded-lg flex-shrink-0 flex items-center justify-center">
                  <span className="text-muted-foreground text-sm">[Img]</span>
@@ -161,7 +152,6 @@ export default function Home() {
 
         {/* Resume Section */}
         <section className={`w-full max-w-2xl mt-12 flex flex-col items-center p-4 rounded-lg transition-all duration-300 ${activeSection==="resume"?" active-section":""}`} id="resume">
-          {/* Use primary-button class */}
           <SpotlightButton href="#" className="primary-button shimmer-btn">Download Resume (PDF)</SpotlightButton>
         </section>
 
