@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 
+type Particle = {
+  x: number;
+  y: number;
+  size: number;
+  delay: number;
+  duration: number;
+};
+
 export default function SparkleParticles({ count = 32 }: { count?: number }) {
-  const [particles, setParticles] = useState<any[]>([]);
+  const [particles, setParticles] = useState<Particle[]>([]);
   useEffect(() => {
     setParticles(
       Array.from({ length: count }).map(() => ({
