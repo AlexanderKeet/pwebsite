@@ -7,7 +7,6 @@ import {
   ScrollProgressBar,
   SpotlightLink,
   GlowOnScroll,
-  HelpButton,
   PageLoader,
   BackgroundGrid,
   SectionNavMenu,
@@ -82,9 +81,6 @@ export default function RootLayout({
 
         {/* Floating Resume CTA Button */}
         <ResumeCTA />
-
-        {/* Floating Help Button */}
-        <HelpButton />
 
         {/* Footer */}
         <footer className="w-full flex flex-col items-center gap-2 py-8 text-gray-500 dark:text-gray-400 animate-fade-in-up">
