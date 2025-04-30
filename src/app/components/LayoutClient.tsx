@@ -354,52 +354,47 @@ function BackToTopProgressCircle() {
       const scrollTop = window.scrollY;
       const docHeight = document.body.scrollHeight - window.innerHeight;
       setProgress(docHeight > 0 ? (scrollTop / docHeight) : 0);
-      setVisible(scrollTop > 200);
+      setVisible(scrollTop > 120);
     };
     window.addEventListener("scroll", onScroll);
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (!visible) return null;
-  const radius = 28;
-  const stroke = 4;
-  const normalizedRadius = radius - stroke / 2;
-  const circumference = normalizedRadius * 2 * Math.PI;
-  const offset = circumference - progress * circumference;
+  // Always show the button, but fade it in/out for accessibility
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      // Use CSS variables for background
-      className="fixed bottom-8 right-8 z-50 p-0 rounded-full bg-[rgba(var(--card-rgb),0.8)] shadow-xl hover:scale-110 transition animate-fade-in-up"
       aria-label="Back to top"
-      style={{ width: 56, height: 56 }}
+      className={`fixed bottom-8 right-8 z-[100] flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-tr from-[rgb(var(--card-rgb))] via-[rgb(var(--primary-rgb))] to-[rgb(var(--accent-rgb))] shadow-2xl border-2 border-[rgba(var(--primary-rgb),0.18)] transition-all duration-300 focus:outline-none focus:ring-4 ring-[rgba(var(--primary-rgb),0.18)] hover:scale-110 hover:shadow-[0_8px_32px_rgba(var(--primary-rgb),0.18)] ${visible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+      tabIndex={0}
+      style={{ boxShadow: '0 8px 32px 0 rgba(79,70,229,0.13)' }}
     >
-      <svg width={56} height={56}>
+      <svg width={44} height={44}>
         <circle
-          cx={28}
-          cy={28}
-          r={normalizedRadius}
-          stroke="rgba(var(--card-border-rgb), 0.5)" // Use card border color
-          strokeWidth={stroke}
+          cx={22}
+          cy={22}
+          r={18}
+          stroke="rgba(var(--card-border-rgb), 0.5)"
+          strokeWidth={4}
           fill="none"
         />
         <circle
-          cx={28}
-          cy={28}
-          r={normalizedRadius}
-          stroke="rgb(var(--primary-rgb))" // Use primary color
-          strokeWidth={stroke}
+          cx={22}
+          cy={22}
+          r={18}
+          stroke="rgb(var(--primary-rgb))"
+          strokeWidth={4}
           fill="none"
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
+          strokeDasharray={2 * Math.PI * 18}
+          strokeDashoffset={(1 - progress) * 2 * Math.PI * 18}
           strokeLinecap="round"
           style={{ transition: 'stroke-dashoffset 0.3s cubic-bezier(.4,0,.2,1)' }}
         />
         <polyline
-          points="22,30 28,24 34,30"
+          points="18,24 22,20 26,24"
           fill="none"
-          stroke="rgb(var(--primary-rgb))" // Use primary color
+          stroke="rgb(var(--primary-rgb))"
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
