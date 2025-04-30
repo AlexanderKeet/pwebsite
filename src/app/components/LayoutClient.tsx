@@ -178,56 +178,6 @@ function GlowOnScroll({ children }: { children: React.ReactNode }) {
   );
 }
 
-// --- HelpButton and HelpModal ---
-function HelpButton() {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <button
-        // Use CSS variables for gradient and text
-        className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gradient-to-tr from-[rgb(var(--accent-rgb))] via-[rgb(var(--primary-rgb))] to-[rgb(var(--primary-rgb))] text-[rgb(var(--primary-foreground-rgb))] shadow-xl hover:scale-110 transition animate-fade-in-up pulse-shadow"
-        aria-label="Show help/info"
-        onClick={() => setOpen(true)}
-      >
-        {/* Use currentColor for SVG */}
-        <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-1m0-4a1 1 0 1 1 2 0c0 1-2 1-2 3"/></svg>
-      </button>
-      {open && <HelpModal onClose={() => setOpen(false)} />}
-    </>
-  );
-}
-
-function HelpModal({ onClose }: { onClose: () => void }) {
-  return (
-    // Use CSS variables for background/backdrop
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[rgba(var(--background-end-rgb),0.4)] backdrop-blur-sm animate-fade-in">
-      {/* Use CSS variables for background, text, border */}
-      <div className="relative bg-[rgb(var(--card-rgb))] rounded-2xl shadow-2xl max-w-lg w-full p-8 animate-fade-in-up border border-[rgba(var(--card-border-rgb),0.5)]">
-        <button
-          // Use muted foreground, primary on hover
-          className="absolute top-4 right-4 text-[rgb(var(--muted-foreground-rgb))] hover:text-[rgb(var(--primary-rgb))] text-2xl font-bold transition-colors"
-          aria-label="Close help"
-          onClick={onClose}
-        >×</button>
-        {/* Use primary color for heading */}
-        <h2 className="text-2xl font-bold mb-4 text-[rgb(var(--primary-rgb))]">How to Personalize Your Portfolio</h2>
-        {/* Use secondary background for code spans, foreground for text */}
-        <ul className="list-disc pl-6 space-y-2 text-base text-[rgb(var(--foreground-rgb))]">
-          <li>Replace all <span className="font-mono bg-[rgb(var(--secondary-rgb))] px-1 rounded">[placeholders]</span> with your real info, skills, projects, and links in <span className="font-mono">src/app/page.tsx</span>.</li>
-          <li>Update your profile photo by replacing the image in the profile section.</li>
-          <li>Add or edit project cards, testimonials, timeline events, and tech stack icons as needed.</li>
-          <li>Customize colors, gradients, and animations in <span className="font-mono">globals.css</span> for your unique style.</li>
-          <li>For advanced changes, edit layout, navigation, and section order in <span className="font-mono">layout.tsx</span>.</li>
-          <li>Print or save as PDF for a beautiful, branded resume version.</li>
-        </ul>
-        {/* Use muted foreground, primary for link */}
-        <div className="mt-6 text-center text-sm text-[rgb(var(--muted-foreground-rgb))]">Need more help? <a href="https://nextjs.org/docs" className="text-[rgb(var(--primary-rgb))] hover:underline" target="_blank" rel="noopener noreferrer">Read the Next.js docs</a></div>
-      </div>
-    </div>
-  );
-}
-
 // --- PageLoader ---
 function PageLoader() {
   const [loading, setLoading] = useState(true);
@@ -444,8 +394,6 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
       </main>
       {/* ResumeCTA uses CSS variables */}
       <ResumeCTA />
-      {/* HelpButton uses CSS variables */}
-      <HelpButton />
       {/* Footer */}
       {/* Use muted foreground for footer text */}
       <footer className="w-full flex flex-col items-center gap-2 py-8 text-[rgb(var(--muted-foreground-rgb))] animate-fade-in-up">
@@ -470,7 +418,6 @@ export {
   ScrollProgressBar,
   SpotlightLink,
   GlowOnScroll,
-  HelpButton,
   PageLoader,
   BackgroundGrid,
   ScrollIndicator,
