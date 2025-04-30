@@ -559,7 +559,7 @@ function Timeline() {
     // Use timeline-border class
     <ol className="relative border-l-4 timeline-border ml-6">
       {events.map((e, i) => (
-        <li key={i} className="mb-12 ml-8 animate-fade-in-up" style={{ animationDelay: `${i * 0.2 + 0.2}s` }}>
+        <li key={i} className="mb-12 ml-8 pl-16 animate-fade-in-up" style={{ animationDelay: `${i * 0.2 + 0.2}s` }}>
           {/* Use timeline-icon-bg class */}
           <span className="absolute -left-10 flex items-center justify-center w-12 h-12 rounded-full timeline-icon-bg shadow-lg">
             {e.icon}
