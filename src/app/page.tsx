@@ -395,12 +395,10 @@ function FloatingLabelInput({ label, type, name, autoComplete, required, value, 
   const [focus, setFocus] = useState(false);
   const isActive = focus || (value != null && value.length > 0);
 
-  let borderClass = "border-card-border focus:border-primary focus:ring-primary/20"; // Use CSS vars via Tailwind config (requires setup) or direct rgb()
-  if (valid === true) borderClass = "border-green-500 focus:border-green-500 focus:ring-green-500/20";
-  if (valid === false) borderClass = "border-red-500 focus:border-red-500 focus:ring-red-500/20";
+  let borderClass = "border-card-border"; // Remove focus and validation highlight
 
   // Define base input/textarea classes using theme variables
-  const inputBaseClasses = `w-full bg-secondary/50 border border-card-border rounded-full px-6 pt-6 pb-2 text-base text-foreground outline-none focus:ring-2 focus:ring-primary/10 focus:border-primary transition duration-200 ${borderClass}`;
+  const inputBaseClasses = `w-full bg-secondary/50 border border-card-border rounded-full px-6 pt-6 pb-2 text-base text-foreground outline-none transition duration-200 ${borderClass}`;
 
   return (
     <div className={`relative ${shake ? "animate-shake" : ""}`}>
