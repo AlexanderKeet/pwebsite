@@ -400,7 +400,7 @@ function FloatingLabelInput({ label, type, name, autoComplete, required, value, 
   if (valid === false) borderClass = "border-red-500 focus:border-red-500 focus:ring-red-500/20";
 
   // Define base input/textarea classes using theme variables
-  const inputBaseClasses = `w-full bg-secondary/50 border rounded-lg px-4 pt-6 pb-2 text-base text-foreground outline-none focus:ring-2 transition duration-200 ${borderClass}`;
+  const inputBaseClasses = `w-full bg-secondary/50 border border-card-border rounded-full px-6 pt-6 pb-2 text-base text-foreground outline-none focus:ring-2 focus:ring-primary/10 focus:border-primary transition duration-200 ${borderClass}`;
 
   return (
     <div className={`relative ${shake ? "animate-shake" : ""}`}>
@@ -431,7 +431,7 @@ function FloatingLabelInput({ label, type, name, autoComplete, required, value, 
       )}
       <label
         // Use CSS variables for label color and background
-        className={`absolute left-4 top-4 text-muted-foreground pointer-events-none transition-all duration-200 ${isActive ? "-translate-y-3 scale-90 bg-background-start px-1 text-primary" : ""}`}
+        className={`absolute left-6 top-4 text-muted-foreground pointer-events-none transition-all duration-200 ${isActive ? "-translate-y-3 scale-90 bg-background-start px-1 text-primary" : ""}`}
         style={{ zIndex: 2, backgroundColor: 'rgb(var(--background-start-rgb))' }} // Explicit background needed for overlap
       >
         {label}
