@@ -430,9 +430,12 @@ function FloatingLabelInput({ label, type, name, autoComplete, required, value, 
         />
       )}
       <label
-        // Use CSS variables for label color and background
-        className={`absolute left-4 top-4 text-muted-foreground pointer-events-none transition-all duration-200 ${isActive ? "-translate-y-3 scale-90 bg-background-start px-1 text-primary" : ""}`}
-        style={{ zIndex: 2, backgroundColor: 'rgb(var(--background-start-rgb))' }} // Explicit background needed for overlap
+        // Add text shadow for better contrast against any background without needing a background color
+        className={`absolute left-4 top-4 text-muted-foreground pointer-events-none transition-all duration-200 ${isActive ? "-translate-y-3 scale-90 text-primary font-medium" : ""}`}
+        style={{ 
+          zIndex: 2,
+          textShadow: isActive ? '0 0 4px rgba(var(--card-rgb), 0.8)' : 'none'
+        }}
       >
         {label}
       </label>
