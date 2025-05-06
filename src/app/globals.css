@@ -254,6 +254,14 @@ button:active, a.btn-like:active, .primary-button:active, .resume-card .primary-
   transform: scale(0.97);
 }
 
+/* Remove highlight on focus for contact form fields */
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+  outline: none;
+  border-color: inherit;
+  box-shadow: none;
+}
+
 .testimonials-carousel .dots button {
   cursor: pointer;
   transition: background 0.18s, transform 0.18s;
@@ -731,12 +739,6 @@ footer span, footer a {
   padding: 0.9rem 1.1rem;
   font-size: 1.08rem;
   transition: border 0.2s, box-shadow 0.2s;
-}
-.contact-form-card input:focus,
-.contact-form-card textarea:focus {
-  outline: none;
-  border-color: rgb(var(--primary-rgb));
-  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.13);
 }
 .contact-form-card button {
   margin-top: 0.5rem;
