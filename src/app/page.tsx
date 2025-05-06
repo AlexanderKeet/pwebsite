@@ -55,7 +55,7 @@ export default function Home() {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content="A stunning portfolio to showcase your work. Replace all placeholders with your real info!" />
         <meta name="twitter:image" content="/your-og-image.png" />
-        <meta name="author" content="[Your Name]" />
+        <meta name="author" content="Alexander Keet" />
         <meta name="robots" content="index, follow" />
         {/* Use primary color variable for theme-color */}
         <meta name="theme-color" content="rgb(var(--primary-rgb))" />
@@ -68,19 +68,18 @@ export default function Home() {
         {/* Profile Section */}
         <section className="w-full max-w-2xl flex flex-col items-center gap-4 mt-8 mb-8 p-4 rounded-lg glass-content about-hero-card" id="about">
           <div className="w-32 h-32 rounded-full profile-photo-bg flex items-center justify-center overflow-hidden shadow-lg ring-4 ring-blue-400/30 dark:ring-blue-700/30 animated-gradient-border">
-            {/* <Image src="/your-photo.jpg" alt="Your Name" width={128} height={128} /> */}
+            {/* <Image src="/your-photo.jpg" alt="Alexander Keet" width={128} height={128} /> */}
             <span className="text-gray-400">[Profile Photo]</span>
           </div>
           <h1 className="text-4xl font-bold text-center">
-            <TypingText text="[Your Name]" className="text-primary" />
+            <TypingText text="Alexander Keet" className="text-primary" />
           </h1>
           <h2 className="text-xl text-muted-foreground text-center"> CS Developer</h2>
           <LiveStatus statusMessages={["Open to opportunities!","Currently building something cool","Let’s connect!"]} />
           <p className="text-center text-lg mt-2 text-foreground"> A Talented, and Hardworking Programmer </p>
           <div className="flex gap-4 mt-2">
-            <a href="#" className="hover:underline">[LinkedIn]</a>
-            <a href="#" className="hover:underline">[GitHub]</a>
-            <a href="#" className="hover:underline">[Twitter/X]</a>
+            <a href="https://www.linkedin.com/in/alexanderkeet" className="hover:underline">LinkedIn</a>
+            <a href="https://github.com/AlexanderKeet" className="hover:underline">GitHub</a>
           </div>
         </section>
 
@@ -162,7 +161,7 @@ export default function Home() {
           <h3 className="section-heading text-2xl font-semibold mb-6">Contact</h3>
           <ContactForm />
           <ul className="text-base mt-8 space-y-2 text-muted-foreground">
-            <li>Email: <a href="mailto:your@email.com" className="text-primary hover:underline">your@email.com</a></li>
+            <li>Email: <a href="mailto:akeet97@gmail.com" className="text-primary hover:underline">akeet97@gmail.com</a></li>
             <li>Phone: 780 202 7227</li>
             <li>Location: Edmonton, Alberta</li>
           </ul>
