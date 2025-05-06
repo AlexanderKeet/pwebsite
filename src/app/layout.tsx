@@ -42,8 +42,24 @@ export default function RootLayout({
         {/* Animated Glassmorphic Navbar */}
         <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95vw] max-w-4xl rounded-2xl glass-navbar flex items-center justify-between px-8 py-3 animate-fade-in">
           <div className="flex items-center gap-3">
-            {/* TODO: Replace with your logo */}
-            <span className="font-bold text-xl tracking-tight text-blue-700 dark:text-blue-300">[Logo]</span>
+            {/* AK Logo */}
+            <div className="font-bold text-xl tracking-tight text-blue-700 dark:text-blue-300 flex items-center justify-center">
+              <svg width="36" height="36" viewBox="0 0 36 36" className="mr-1">
+                <defs>
+                  <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="rgb(var(--accent-rgb))" />
+                    <stop offset="100%" stopColor="rgb(var(--primary-rgb))" />
+                  </linearGradient>
+                </defs>
+                <rect width="36" height="36" rx="8" fill="url(#logo-gradient)" fillOpacity="0.15" />
+                <path d="M10 26L16 10H18L24 26" stroke="rgb(var(--primary-rgb))" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+                <path d="M12 20H22" stroke="rgb(var(--primary-rgb))" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M26 10V26" stroke="rgb(var(--accent-rgb))" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M22 10H30" stroke="rgb(var(--accent-rgb))" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M22 18H30" stroke="rgb(var(--accent-rgb))" strokeWidth="2.5" strokeLinecap="round" />
+              </svg>
+              <span>AK</span>
+            </div>
             <span className="font-mono text-sm text-gray-500 dark:text-gray-400">Portfolio</span>
           </div>
           <div className="flex gap-6 text-base font-medium">
